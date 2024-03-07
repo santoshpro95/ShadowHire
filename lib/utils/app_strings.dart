@@ -1,3 +1,5 @@
+import 'package:shadowhire/utils/app_constants.dart';
+
 class AppStrings {
   static const appFeature = "Feature Name";
 
@@ -20,10 +22,10 @@ class AppStrings {
   static const contactMsg = "Kindly ensure accurate entry of your email and phone number to facilitate effective communication with you.";
 
   // payment
-  static const payment = "UPI Payment";
+  static const payment = "Scan From any UPI App";
   static const paymentMsg = "Please tap the 'Confirm Payment' button once you have completed the transaction";
   static const confirm = "Confirm Payment";
-  static const amount = "Total Amount: ₹299.00";
+  static const amount = "Total Amount: ₹${AppConstants.amount}.00";
   static const verifyPayment = "If the payment has not been made, the investigation will not proceed further.";
 
   // details

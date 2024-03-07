@@ -10,7 +10,8 @@ Widget questionIndicators(HomeBloc homeBloc) {
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return Container(
+          return AnimatedContainer(
+            duration: const Duration(milliseconds: 500),
               margin: const EdgeInsets.only(right: 10),
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
                   color:index <= homeBloc.currentQuestion? AppColors.primary: Colors.transparent,

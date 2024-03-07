@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:shadowhire/features/app.dart';
 import 'package:shadowhire/features/payment/payment_bloc.dart';
 import 'package:shadowhire/model/question_response.dart';
 import 'package:shadowhire/utils/app_assets.dart';
