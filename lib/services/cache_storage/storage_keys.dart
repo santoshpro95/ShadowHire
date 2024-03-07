@@ -5,6 +5,6 @@ class StorageKeys {
 
   // App Information
   static const isOnboardingFinished = "1b24c74b-2d9b-4553-b9a2-70ab02af8159";
-// endregion
+  static const investigationDetails = "7582547e-6423-4158-b0c4-35ab3a3664bb";
 
 }
