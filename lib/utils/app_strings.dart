@@ -4,9 +4,9 @@ class AppStrings {
   static const appFeature = "Feature Name";
 
   // onboarding
-  static const onBoarding_1 = "Real-time insights for a smooth and personalised service.";
-  static const onBoarding_2 = "Easily find any VIP guest on the application";
-  static const onBoarding_3 = "Guest issues shared automatically when approaching staff";
+  static const onBoarding_1 = "By providing answers to a few key questions, we can effectively identify the most suitable private investigator for your needs.";
+  static const onBoarding_2 = "Initiate the private investigation by making a minimal initial payment.";
+  static const onBoarding_3 = "Monitor the real-time status of your private investigation as it unfolds.";
 
   // home
   static const message = "Help us to get you the right private investigator";

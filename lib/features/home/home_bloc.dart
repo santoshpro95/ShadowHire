@@ -71,7 +71,7 @@ class HomeBloc {
 
   // region openContact
   void openContact() {
-    var screen =  ContactScreen(questionResponse: questionResponse);
+    var screen = ContactScreen(questionResponse: questionResponse);
     var route = CommonMethods.createRouteRTL(screen);
     Navigator.push(context, route);
   }
@@ -89,7 +89,9 @@ class HomeBloc {
   // region loadQuestions
   Future<void> loadQuestions() async {
     try {
-      var question = await CommonMethods.getJsonFile(AppAssets.englishQuestion);
+      var jsonFile = AppAssets.englishQuestion;
+      if (languageCtrl.value == "Hindi") jsonFile = AppAssets.hindiQuestion;
+      var question = await CommonMethods.getJsonFile(jsonFile);
       questionResponse = QuestionResponse.fromJson(question);
       if (!loadingCtrl.isClosed) loadingCtrl.sink.add(false);
     } catch (exception) {
