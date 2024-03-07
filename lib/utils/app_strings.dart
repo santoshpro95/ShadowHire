@@ -7,5 +7,9 @@ class AppStrings{
   static const onBoarding_3 = "Guest issues shared automatically when approaching staff";
 
 
+  // home
+  static const selectLanguage = "Select Language";
+  static const next = "Next";
+  static const prev = "Prev";
 
 }
