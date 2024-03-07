@@ -64,8 +64,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
         Opacity(opacity: 0.5, child: Image.asset(AppAssets.background, height: 200, width: double.maxFinite, fit: BoxFit.cover)),
         Padding(
           padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [qrCode(), info(), confirm()],
+          child: ListView(
+            children: [qrCode(), info(), verify(), confirm()],
           ),
         ),
       ],
@@ -77,7 +77,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
   // region confirm
   Widget confirm() {
     return Container(
-      margin: const EdgeInsets.only(top: 30),
+      margin: const EdgeInsets.only(top: 10),
       child: CupertinoButton(
         onPressed: () => paymentBloc.confirm(),
         child: Container(
@@ -112,22 +112,51 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   // endregion
 
+  // region verify
+  Widget verify() {
+    return Container(
+      margin: const EdgeInsets.only(top: 20),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: AppColors.primary.withOpacity(0.1)),
+      child: const Padding(
+        padding: EdgeInsets.all(15),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(Icons.info_outline, color: AppColors.primary),
+            SizedBox(width: 10),
+            Expanded(child: Text(AppStrings.verifyPayment, style: TextStyle(color: AppColors.primary, fontSize: 16)))
+          ],
+        ),
+      ),
+    );
+  }
+
+  // endregion
+
 // region QrCode
   Widget qrCode() {
     return Container(
-      height: MediaQuery.of(context).size.width - 30,
+      height: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10), border: Border.all(width: 3, color: AppColors.primary)),
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(30),
-          child: SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: QrImageView(
-                  data: "${AppConstants.paymentUrl}${paymentBloc.questionResponse.phoneNo}",
-                  version: QrVersions.auto,
-                  size: MediaQuery.of(context).size.width,
-                  gapless: false)),
-        ),
+      child: Column(
+        children: [
+          Expanded(
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(30),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: QrImageView(
+                        data: "${AppConstants.paymentUrl}${paymentBloc.questionResponse.phoneNo}",
+                        version: QrVersions.auto,
+                        size: MediaQuery.of(context).size.width,
+                        gapless: false)),
+              ),
+            ),
+          ),
+          const Text(AppStrings.amount, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.primary)),
+          const SizedBox(height: 10)
+        ],
       ),
     );
   }

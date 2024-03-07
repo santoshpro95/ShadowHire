@@ -60,7 +60,7 @@ class _ContactScreenState extends State<ContactScreen> {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
-        children: [phoneNumber(), emailId(), nextBtn()],
+        children: [phoneNumber(), emailId(), info(), nextBtn()],
       ),
     );
   }
@@ -85,6 +85,27 @@ class _ContactScreenState extends State<ContactScreen> {
               ),
             );
           }),
+    );
+  }
+
+  // endregion
+
+  // region info
+  Widget info() {
+    return Container(
+      margin: const EdgeInsets.only(top: 20),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: AppColors.primary.withOpacity(0.1)),
+      child: const Padding(
+        padding: EdgeInsets.all(15),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(Icons.info_outline, color: AppColors.primary),
+            SizedBox(width: 10),
+            Expanded(child: Text(AppStrings.contactMsg, style: TextStyle(color: AppColors.primary, fontSize: 16)))
+          ],
+        ),
+      ),
     );
   }
 

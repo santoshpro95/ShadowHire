@@ -17,11 +17,14 @@ class AppStrings {
   static const noCountryFound = "No Country Found";
   static const searchCode = "Search Country Code";
   static const next = "Next";
+  static const contactMsg = "Kindly ensure accurate entry of your email and phone number to facilitate effective communication with you.";
 
   // payment
   static const payment = "UPI Payment";
   static const paymentMsg = "Please tap the 'Confirm Payment' button once you have completed the transaction";
   static const confirm = "Confirm Payment";
+  static const amount = "Total Amount: ₹299.00";
+  static const verifyPayment = "If the payment has not been made, the investigation will not proceed further.";
 
   // details
   static const details = "Investigation Details";
