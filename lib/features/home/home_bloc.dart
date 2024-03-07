@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:shadowhire/features/contact/contact_screen.dart';
 import 'package:shadowhire/features/payment/payment_screen.dart';
 import 'package:shadowhire/model/question_response.dart';
 import 'package:shadowhire/services/cache_storage/cache_storage_service.dart';
@@ -51,7 +52,7 @@ class HomeBloc {
   // region nextQuestion
   void nextQuestion() {
     if (currentQuestion == questionResponse.questions!.length - 1) {
-      openPayment();
+      openContact();
       return;
     }
     currentQuestion++;
@@ -60,9 +61,17 @@ class HomeBloc {
 
   // endregion
 
-  // region openPayment
-  void openPayment() {
-    var screen = const PaymentScreen();
+  // region onSelectAns
+  void onSelectAns(Questions questions, String ans) {
+    questions.answer = ans;
+    nextQuestion();
+  }
+
+  // endregion
+
+  // region openContact
+  void openContact() {
+    var screen =  ContactScreen(questionResponse: questionResponse);
     var route = CommonMethods.createRouteRTL(screen);
     Navigator.push(context, route);
   }

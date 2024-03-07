@@ -8,4 +8,7 @@ class AppAssets {
 
   // questions
   static const englishQuestion = "assets/json/en_questions.json";
+
+  // payment
+  static const background = 'assets/image/background.jpg';
 }

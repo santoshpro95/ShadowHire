@@ -100,9 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         questionDetails(homeBloc),
         reason(),
-        Row(
-          children: [prevBtn(), nextBtn()],
-        )
+        prevBtn()
       ],
     );
   }
@@ -136,47 +134,23 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // region prevBtn
   Widget prevBtn() {
-    return Expanded(
-      child: CupertinoButton(
-        padding: EdgeInsets.zero,
-        onPressed: homeBloc.currentQuestion == 0 ? null : () => homeBloc.prevQuestion(),
-        child: Container(
-          height: 45,
-          margin: const EdgeInsets.all(30),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10), color: homeBloc.currentQuestion == 0 ? AppColors.primary.withOpacity(0.3) : AppColors.primary),
-          child: const Center(
-            child: Text(
-              AppStrings.prev,
-              style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600),
-            ),
+    return CupertinoButton(
+      padding: EdgeInsets.zero,
+      onPressed: homeBloc.currentQuestion == 0 ? null : () => homeBloc.prevQuestion(),
+      child: Container(
+        height: 45,
+        margin: const EdgeInsets.all(30),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10), color: homeBloc.currentQuestion == 0 ? AppColors.primary.withOpacity(0.3) : AppColors.primary),
+        child: const Center(
+          child: Text(
+            AppStrings.prev,
+            style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600),
           ),
         ),
       ),
     );
   }
 
-// endregion
-
-// region nextBtn
-  Widget nextBtn() {
-    return Expanded(
-      child: CupertinoButton(
-        padding: EdgeInsets.zero,
-        onPressed: () => homeBloc.nextQuestion(),
-        child: Container(
-          height: 45,
-          margin: const EdgeInsets.all(30),
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: AppColors.primary),
-          child: const Center(
-            child: Text(
-              AppStrings.next,
-              style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 // endregion
 }

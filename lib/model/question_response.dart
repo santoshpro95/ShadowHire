@@ -1,5 +1,7 @@
 class QuestionResponse {
   List<Questions>? questions;
+  String phoneNo = "";
+  String emailId = "";
 
   QuestionResponse({this.questions});
 
@@ -17,6 +19,8 @@ class QuestionResponse {
     if (this.questions != null) {
       data['questions'] = this.questions!.map((v) => v.toJson()).toList();
     }
+    data['phoneNo']= this.phoneNo;
+    data['emailId']= this.emailId;
     return data;
   }
 }
@@ -25,6 +29,7 @@ class Questions {
   int? id;
   String? question;
   String? reason;
+  String answer = "";
   List<String>? options;
 
   Questions({this.id, this.question, this.reason, this.options});
@@ -42,6 +47,7 @@ class Questions {
     data['question'] = this.question;
     data['reason'] = this.reason;
     data['options'] = this.options;
+    data['answer'] = this.answer;
     return data;
   }
 }
