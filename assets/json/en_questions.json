@@ -1,0 +1,89 @@
+{
+  "questions": [
+    {
+      "question": "What is your relationship with the person you want to spy on?",
+      "options": [
+        "Parent",
+        "Spouse",
+        "Sibling",
+        "Other (please specify)"
+      ]
+    },
+    {
+      "question": "Why do you want to hire a spy for this person?",
+      "options": [
+        "Suspected infidelity",
+        "Concern for safety",
+        "Financial concerns",
+        "Other (please specify)"
+      ]
+    },
+    {
+      "question": "How long have you known the person you want to spy on?",
+      "options": [
+        "Less than a year",
+        "1-5 years",
+        "5-10 years",
+        "More than 10 years"
+      ]
+    },
+    {
+      "question": "How often do you interact with the person you want to spy on?",
+      "options": [
+        "Daily",
+        "Weekly",
+        "Monthly",
+        "Rarely"
+      ]
+    },
+    {
+      "question": "Have you noticed any suspicious behavior from the person you want to spy on?",
+      "options": [
+        "Yes",
+        "No",
+        "Not sure"
+      ]
+    },
+    {
+      "question": "What kind of information are you hoping to obtain from the spy?",
+      "options": [
+        "Location tracking",
+        "Communication monitoring (calls, texts)",
+        "Social media activity monitoring",
+        "Other (please specify)"
+      ]
+    },
+    {
+      "question": "Are you willing to disclose your identity to the person you want to spy on?",
+      "options": [
+        "Yes",
+        "No",
+        "Not sure"
+      ]
+    },
+    {
+      "question": "How important is it for you to keep this investigation discreet?",
+      "options": [
+        "Very important",
+        "Somewhat important",
+        "Not important"
+      ]
+    },
+    {
+      "question": "Are you willing to provide evidence or reasons for wanting to hire a spy?",
+      "options": [
+        "Yes",
+        "No",
+        "Not sure"
+      ]
+    },
+    {
+      "question": "How soon do you need the spy to start the investigation?",
+      "options": [
+        "Immediately",
+        "Within a week",
+        "Within a month"
+      ]
+    }
+  ]
+}

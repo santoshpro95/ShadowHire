@@ -23,7 +23,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.shadow.hire.shadowhire"
+    namespace "com.shadow.hire"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 

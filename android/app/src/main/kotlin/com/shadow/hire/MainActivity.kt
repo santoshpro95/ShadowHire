@@ -1,4 +1,4 @@
-package com.shadow.hire.shadowhire
+package com.shadow.hire
 
 import io.flutter.embedding.android.FlutterActivity
 
