@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shadowhire/features/app.dart';
 import 'package:shadowhire/features/payment/payment_bloc.dart';
+import 'package:shadowhire/utils/app_strings.dart';
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({super.key});
@@ -35,6 +37,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(AppStrings.payment),
+      ),
       body: body(),
     );
   }

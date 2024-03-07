@@ -8,8 +8,11 @@ class AppStrings{
 
 
   // home
+  static const message = "Help us to get you the right private investigator";
   static const selectLanguage = "Select Language";
   static const next = "Next";
   static const prev = "Prev";
 
+  // payment
+  static const payment = "Payment";
 }

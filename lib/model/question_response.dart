@@ -22,19 +22,25 @@ class QuestionResponse {
 }
 
 class Questions {
+  int? id;
   String? question;
+  String? reason;
   List<String>? options;
 
-  Questions({this.question, this.options});
+  Questions({this.id, this.question, this.reason, this.options});
 
   Questions.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     question = json['question'];
+    reason = json['reason'];
     options = json['options'].cast<String>();
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
     data['question'] = this.question;
+    data['reason'] = this.reason;
     data['options'] = this.options;
     return data;
   }

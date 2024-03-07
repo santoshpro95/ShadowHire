@@ -1,25 +1,31 @@
 {
   "questions": [
     {
+      "id": 1,
       "question": "What is your relationship with the person you want to spy on?",
+      "reason": "To ensure that the user is only hiring a spy for their family relations or people they know.",
       "options": [
         "Parent",
         "Spouse",
         "Sibling",
-        "Other (please specify)"
+        "Friend"
       ]
     },
     {
+      "id": 2,
       "question": "Why do you want to hire a spy for this person?",
+      "reason": "To understand the user's motivations and the nature of their concerns.",
       "options": [
         "Suspected infidelity",
         "Concern for safety",
         "Financial concerns",
-        "Other (please specify)"
+        "Other"
       ]
     },
     {
+      "id": 3,
       "question": "How long have you known the person you want to spy on?",
+      "reason": "To gauge the level of familiarity and relationship history with the person.",
       "options": [
         "Less than a year",
         "1-5 years",
@@ -28,7 +34,9 @@
       ]
     },
     {
+      "id": 4,
       "question": "How often do you interact with the person you want to spy on?",
+      "reason": "To understand the frequency of contact and level of closeness to the person.",
       "options": [
         "Daily",
         "Weekly",
@@ -37,7 +45,9 @@
       ]
     },
     {
+      "id": 5,
       "question": "Have you noticed any suspicious behavior from the person you want to spy on?",
+      "reason": "To determine if there are specific reasons or incidents prompting the investigation.",
       "options": [
         "Yes",
         "No",
@@ -45,16 +55,20 @@
       ]
     },
     {
+      "id": 6,
       "question": "What kind of information are you hoping to obtain from the spy?",
+      "reason": "To clarify the user's expectations and the scope of the investigation.",
       "options": [
         "Location tracking",
         "Communication monitoring (calls, texts)",
         "Social media activity monitoring",
-        "Other (please specify)"
+        "Other"
       ]
     },
     {
+      "id": 7,
       "question": "Are you willing to disclose your identity to the person you want to spy on?",
+      "reason": "To understand the user's approach to confidentiality and privacy.",
       "options": [
         "Yes",
         "No",
@@ -62,7 +76,9 @@
       ]
     },
     {
+      "id": 8,
       "question": "How important is it for you to keep this investigation discreet?",
+      "reason": "To gauge the user's preference for discretion and confidentiality.",
       "options": [
         "Very important",
         "Somewhat important",
@@ -70,7 +86,9 @@
       ]
     },
     {
+      "id": 9,
       "question": "Are you willing to provide evidence or reasons for wanting to hire a spy?",
+      "reason": "To assess the user's preparedness and seriousness about the investigation.",
       "options": [
         "Yes",
         "No",
@@ -78,7 +96,9 @@
       ]
     },
     {
+      "id": 10,
       "question": "How soon do you need the spy to start the investigation?",
+      "reason": "To understand the urgency of the user's need for the investigation.",
       "options": [
         "Immediately",
         "Within a week",

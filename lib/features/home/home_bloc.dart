@@ -11,7 +11,7 @@ class HomeBloc {
   // region Common Variables
   BuildContext context;
   QuestionResponse questionResponse = QuestionResponse();
-  int currentQuestion = 3;
+  int currentQuestion = 0;
 
   // endregion
 
@@ -72,6 +72,7 @@ class HomeBloc {
   // region languageSelection
   void languageSelection(String language) {
     languageCtrl.value = language;
+    loadQuestions();
   }
 
   // endregion
