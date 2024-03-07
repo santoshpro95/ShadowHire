@@ -9,7 +9,6 @@ class AppStrings {
   // home
   static const message = "Help us to get you the right private investigator";
   static const selectLanguage = "Select Language";
-  static const prev = "Prev Question";
 
   // contact
   static const contactDetails = "Contact details";
@@ -23,4 +22,13 @@ class AppStrings {
   static const payment = "UPI Payment";
   static const paymentMsg = "Please tap the 'Confirm Payment' button once you have completed the transaction";
   static const confirm = "Confirm Payment";
+
+  // details
+  static const details = "Investigation Details";
+  static const closeInvestigation = "Close Investigation";
+  static const closeInvestigationMsg = "Are you sure to close investigation?";
+  static const processing = "Processing";
+  static const onGoing = "On Going";
+  static const finished = "Finished";
+  static const contactMessage = "We will be in touch with you shortly regarding a private investigation.";
 }

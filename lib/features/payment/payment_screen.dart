@@ -81,7 +81,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
       child: CupertinoButton(
         onPressed: () => paymentBloc.confirm(),
         child: Container(
-          height: 55,
+          height: 45,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: AppColors.primary),
           child: const Center(child: Text(AppStrings.confirm, style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500))),
         ),

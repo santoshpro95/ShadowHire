@@ -83,6 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
 // region showQuestions
   Widget showQuestions() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           padding: const EdgeInsets.symmetric(vertical: 20),
@@ -139,14 +140,13 @@ class _HomeScreenState extends State<HomeScreen> {
       onPressed: homeBloc.currentQuestion == 0 ? null : () => homeBloc.prevQuestion(),
       child: Container(
         height: 45,
+        alignment: Alignment.centerLeft,
+        width: 100,
         margin: const EdgeInsets.all(30),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10), color: homeBloc.currentQuestion == 0 ? AppColors.primary.withOpacity(0.3) : AppColors.primary),
+            borderRadius: BorderRadius.circular(50), color: homeBloc.currentQuestion == 0 ? AppColors.primary.withOpacity(0.3) : AppColors.primary),
         child: const Center(
-          child: Text(
-            AppStrings.prev,
-            style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w600),
-          ),
+          child: Icon(Icons.arrow_back, color: Colors.white),
         ),
       ),
     );

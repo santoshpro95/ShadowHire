@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shadowhire/features/details/details_screen.dart';
 import 'package:shadowhire/model/question_response.dart';
 import 'package:shadowhire/services/cache_storage/cache_storage_service.dart';
 import 'package:shadowhire/services/cache_storage/storage_keys.dart';
+import 'package:shadowhire/utils/common_methods.dart';
 
 class PaymentBloc {
   // region Common Variables
@@ -26,7 +28,7 @@ class PaymentBloc {
   // endregion
 
   // region confirm
-  void confirm() async{
+  void confirm() async {
     print(questionResponse.toJson());
     await cacheStorageService.save(StorageKeys.investigationDetails, questionResponse);
     openInvestigationDetails();
@@ -35,10 +37,12 @@ class PaymentBloc {
   // endregion
 
   // region openInvestigationDetails
-  void openInvestigationDetails(){
-
-
+  void openInvestigationDetails() {
+    var screen = const DetailsScreen();
+    var route = CommonMethods.createRouteRTL(screen);
+    Navigator.push(context, route);
   }
+
   // endregion
 
   // region Dispose

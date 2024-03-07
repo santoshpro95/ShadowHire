@@ -1,9 +1,9 @@
 class QuestionResponse {
   List<Questions>? questions;
-  String phoneNo = "";
-  String emailId = "";
+  String? phoneNo;
+  String? emailId;
 
-  QuestionResponse({this.questions});
+  QuestionResponse({this.questions, this.phoneNo, this.emailId});
 
   QuestionResponse.fromJson(Map<String, dynamic> json) {
     if (json['questions'] != null) {
@@ -11,6 +11,8 @@ class QuestionResponse {
       json['questions'].forEach((v) {
         questions!.add(new Questions.fromJson(v));
       });
+      phoneNo = json['phoneNo'];
+      emailId = json['emailId'];
     }
   }
 
@@ -19,8 +21,8 @@ class QuestionResponse {
     if (this.questions != null) {
       data['questions'] = this.questions!.map((v) => v.toJson()).toList();
     }
-    data['phoneNo']= this.phoneNo;
-    data['emailId']= this.emailId;
+    data['phoneNo'] = this.phoneNo;
+    data['emailId'] = this.emailId;
     return data;
   }
 }
@@ -29,15 +31,16 @@ class Questions {
   int? id;
   String? question;
   String? reason;
-  String answer = "";
+  String? answer;
   List<String>? options;
 
-  Questions({this.id, this.question, this.reason, this.options});
+  Questions({this.id, this.question, this.reason, this.options, this.answer});
 
   Questions.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     question = json['question'];
     reason = json['reason'];
+    answer = json['answer'];
     options = json['options'].cast<String>();
   }
 
