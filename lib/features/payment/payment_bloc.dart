@@ -34,8 +34,7 @@ class PaymentBloc {
   // endregion
 
   // region confirm
-  void confirm() async {
-    print(questionResponse.toJson());
+  Future<void> confirm() async {
     await cacheStorageService.save(StorageKeys.investigationDetails, questionResponse);
     openInvestigationDetails();
   }

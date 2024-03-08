@@ -47,9 +47,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Text(AppStrings.payment),
-      ),
+      appBar: AppBar(title: const Text(AppStrings.payment)),
       body: body(),
     );
   }
