@@ -4,7 +4,8 @@ class AppStrings {
   static const appFeature = "Feature Name";
 
   // onboarding
-  static const onBoarding_1 = "By providing answers to a few key questions, we can effectively identify the most suitable private investigator for your needs.";
+  static const onBoarding_1 =
+      "By providing answers to a few key questions, we can effectively identify the most suitable private investigator for your needs.";
   static const onBoarding_2 = "Initiate the private investigation by making a minimal initial payment.";
   static const onBoarding_3 = "Monitor the real-time status of your private investigation as it unfolds.";
 
@@ -15,9 +16,11 @@ class AppStrings {
   // contact
   static const contactDetails = "Contact details";
   static const enterEmail = "Enter Email Id";
+  static const enterName = "Enter Full Name";
   static const enterNumber = "Enter Phone No.";
   static const noCountryFound = "No Country Found";
   static const searchCode = "Search Country Code";
+  static const enterValidEmail = "Please enter valid email Id";
   static const next = "Next";
   static const contactMsg = "Kindly ensure accurate entry of your email and phone number to facilitate effective communication with you.";
 

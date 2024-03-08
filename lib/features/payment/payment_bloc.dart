@@ -3,7 +3,9 @@ import 'package:shadowhire/features/details/details_screen.dart';
 import 'package:shadowhire/model/question_response.dart';
 import 'package:shadowhire/services/cache_storage/cache_storage_service.dart';
 import 'package:shadowhire/services/cache_storage/storage_keys.dart';
+import 'package:shadowhire/utils/app_constants.dart';
 import 'package:shadowhire/utils/common_methods.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class PaymentBloc {
   // region Common Variables
@@ -14,6 +16,10 @@ class PaymentBloc {
 
   // region Services
   CacheStorageService cacheStorageService = CacheStorageService();
+
+  // endregion
+
+  // region Payment
 
   // endregion
 

@@ -60,7 +60,7 @@ class _ContactScreenState extends State<ContactScreen> {
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
-        children: [phoneNumber(), emailId(), info(), nextBtn()],
+        children: [fullName(), emailId(), phoneNumber(), info(), nextBtn()],
       ),
     );
   }
@@ -72,15 +72,15 @@ class _ContactScreenState extends State<ContactScreen> {
     return Container(
       margin: const EdgeInsets.only(top: 20),
       child: StreamBuilder<bool>(
-          stream: contactBloc.validEmailCtrl.stream,
+          stream: contactBloc.loadingCtrl.stream,
           initialData: false,
           builder: (context, snapshot) {
+            if (snapshot.data!) return const Center(child: CircularProgressIndicator());
             return CupertinoButton(
-              onPressed: snapshot.data! ? () => contactBloc.openPayment() : null,
+              onPressed: () => contactBloc.next(),
               child: Container(
                 height: 45,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50), color: snapshot.data! ? AppColors.primary : AppColors.primary.withOpacity(0.3)),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: AppColors.primary),
                 child: const Center(child: Text(AppStrings.next, style: TextStyle(color: Colors.white))),
               ),
             );
@@ -114,7 +114,42 @@ class _ContactScreenState extends State<ContactScreen> {
   // region emailId
   Widget emailId() {
     return Container(
-      margin: const EdgeInsets.only(top: 15),
+      margin: const EdgeInsets.only(bottom: 15),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        color: Colors.white,
+        boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 0.5, offset: Offset(0, 1))],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: StreamBuilder<bool>(
+            stream: contactBloc.validEmailCtrl.stream,
+            initialData: true,
+            builder: (context, snapshot) {
+              return TextField(
+                autofocus: true,
+                style: const TextStyle(fontSize: 18, letterSpacing: 1),
+                onChanged: (text) => contactBloc.onChangeText(text),
+                controller: contactBloc.emailTextCtrl,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                    hintText: AppStrings.enterEmail,
+                    errorText: snapshot.data! ? null : AppStrings.enterValidEmail,
+                    counterText: "",
+                    labelText: AppStrings.enterEmail,
+                    border: InputBorder.none),
+              );
+            }),
+      ),
+    );
+  }
+
+  // endregion
+
+  // region fullName
+  Widget fullName() {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         color: Colors.white,
@@ -125,10 +160,9 @@ class _ContactScreenState extends State<ContactScreen> {
         child: TextField(
           autofocus: true,
           style: const TextStyle(fontSize: 18, letterSpacing: 1),
-          onChanged: (text) => contactBloc.onChangeText(text),
-          controller: contactBloc.emailTextCtrl,
-          keyboardType: TextInputType.emailAddress,
-          decoration: const InputDecoration(hintText: AppStrings.enterEmail, labelText: AppStrings.enterEmail, border: InputBorder.none),
+          controller: contactBloc.fullNameCtrl,
+          keyboardType: TextInputType.name,
+          decoration: const InputDecoration(hintText: AppStrings.enterName, labelText: AppStrings.enterName, border: InputBorder.none),
         ),
       ),
     );
@@ -177,7 +211,7 @@ class _ContactScreenState extends State<ContactScreen> {
         mainAxisSize: MainAxisSize.min,
         children: [
           CountryCodePicker(
-              onChanged: (countryCode) => contactBloc.onCountryChange(countryCode),
+              onChanged: (countryCode) => contactBloc.selectedCountryCode = countryCode.dialCode!,
               initialSelection: contactBloc.defaultCountryCode,
               showCountryOnly: false,
               emptySearchBuilder: (d) => const Center(child: Text(AppStrings.noCountryFound)),

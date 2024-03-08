@@ -2,9 +2,17 @@ import 'dart:async';
 
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
+import 'package:shadowhire/features/details/details_screen.dart';
 import 'package:shadowhire/features/payment/payment_screen.dart';
 import 'package:shadowhire/model/question_response.dart';
+import 'package:shadowhire/services/cache_storage/cache_storage_service.dart';
+import 'package:shadowhire/utils/app_constants.dart';
+import 'package:shadowhire/utils/app_strings.dart';
 import 'package:shadowhire/utils/common_methods.dart';
+import 'package:shadowhire/utils/common_widgets.dart';
+
+import '../../services/cache_storage/storage_keys.dart';
 
 class ContactBloc {
   // region Common Variables
@@ -16,6 +24,7 @@ class ContactBloc {
   // endregion
 
   // region Text Controller
+  final fullNameCtrl = TextEditingController();
   final emailTextCtrl = TextEditingController();
   final phoneNumberTextCtrl = TextEditingController();
 
@@ -23,6 +32,7 @@ class ContactBloc {
 
   // region Controller
   final validEmailCtrl = StreamController<bool>.broadcast();
+  final loadingCtrl = StreamController<bool>.broadcast();
 
   // endregion
 
@@ -36,21 +46,29 @@ class ContactBloc {
 
   // endregion
 
-  // region openPayment
-  void openPayment() {
+  // region next
+  void next() {
+    // validation
+    if (fullNameCtrl.text.isEmpty || phoneNumberTextCtrl.text.isEmpty || emailTextCtrl.text.isEmpty) {
+      return;
+    }
+
+    // get data
+    questionResponse.name = fullNameCtrl.text;
     questionResponse.phoneNo = "$selectedCountryCode${phoneNumberTextCtrl.text}";
     questionResponse.emailId = emailTextCtrl.text;
 
-    var screen = PaymentScreen(questionResponse: questionResponse);
-    var route = CommonMethods.createRouteRTL(screen);
-    Navigator.push(context, route);
+    // open Payment
+    openPayment();
   }
 
   // endregion
 
-  // region onCountryChange
-  void onCountryChange(CountryCode countryCode) async {
-    selectedCountryCode = countryCode.dialCode!;
+  // region openInvestigationDetails
+  void openPayment() {
+    var screen = PaymentScreen(questionResponse: questionResponse);
+    var route = CommonMethods.createRouteRTL(screen);
+    Navigator.push(context, route);
   }
 
   // endregion
@@ -66,6 +84,7 @@ class ContactBloc {
   // region Dispose
   void dispose() {
     validEmailCtrl.close();
+    loadingCtrl.close();
   }
 // endregion
 }
