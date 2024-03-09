@@ -37,7 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(toolbarHeight: 0, backgroundColor: Colors.white, elevation: 0),
+      appBar: AppBar(toolbarHeight: 0,
+          scrolledUnderElevation: 0,
+          backgroundColor: Colors.white, elevation: 0),
       body: body(),
     );
   }

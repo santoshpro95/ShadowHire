@@ -59,7 +59,7 @@ class _ContactScreenState extends State<ContactScreen> {
   Widget body() {
     return Padding(
       padding: const EdgeInsets.all(20),
-      child: Column(
+      child: ListView(
         children: [fullName(), emailId(), phoneNumber(), info(), nextBtn()],
       ),
     );

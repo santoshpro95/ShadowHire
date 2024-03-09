@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CommonMethods {
   //#region Region - Route Right to Left
@@ -17,6 +18,16 @@ class CommonMethods {
   static Future<Map<String, dynamic>> getJsonFile(String filePath) async {
     var jsonStr = await rootBundle.loadString(filePath);
     return json.decode(jsonStr);
+  }
+
+// endregion
+
+
+  // region openUrl
+  static openUrl(String url) async {
+    if (!await launchUrl(Uri.parse(url))) {
+      throw 'Could not launch $url';
+    }
   }
 
 // endregion

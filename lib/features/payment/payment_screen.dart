@@ -7,6 +7,7 @@ import 'package:shadowhire/utils/app_assets.dart';
 import 'package:shadowhire/utils/app_colors.dart';
 import 'package:shadowhire/utils/app_constants.dart';
 import 'package:shadowhire/utils/app_strings.dart';
+import 'package:shadowhire/utils/common_methods.dart';
 
 class PaymentScreen extends StatefulWidget {
   final QuestionResponse questionResponse;
@@ -158,7 +159,12 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ),
             ),
           ),
-          const Text(AppStrings.amount, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.primary)),
+          CupertinoButton(
+            padding: EdgeInsets.zero,
+            onPressed: () => CommonMethods.openUrl("${AppConstants.paymentUrl}${paymentBloc.questionResponse.phoneNo}"),
+            child: const Text(AppStrings.amount,
+                style: TextStyle(decoration: TextDecoration.underline, fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.primary)),
+          ),
           const SizedBox(height: 10)
         ],
       ),
