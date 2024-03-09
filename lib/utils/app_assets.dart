@@ -12,9 +12,4 @@ class AppAssets {
 
   // payment
   static const background = 'assets/image/background.jpg';
-
-  // details
-  static const processing = 'assets/image/processing.svg';
-  static const ongoing = 'assets/image/ongoing.svg';
-  static const finish = 'assets/image/finish.svg';
 }

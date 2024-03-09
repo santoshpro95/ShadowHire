@@ -67,7 +67,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
@@ -82,16 +81,21 @@ class _DetailsScreenState extends State<DetailsScreen> {
               )
             ],
           ),
-          status(),
-          const SizedBox(height: 10),
-          Text(
-            "${detailsBloc.questionResponse.phoneNo!} | ${detailsBloc.questionResponse.emailId!}",
-            style: const TextStyle(fontWeight: FontWeight.w600, color: AppColors.primary, fontSize: 18),
+          Expanded(
+            child: ListView(
+              children: [
+                info(),
+                const SizedBox(height: 10),
+                Text(
+                  "${detailsBloc.questionResponse.phoneNo!} | ${detailsBloc.questionResponse.emailId!}",
+                  style: const TextStyle(fontWeight: FontWeight.w600, color: AppColors.primary, fontSize: 18),
+                ),
+                const SizedBox(height: 10),
+                questionDetails(),
+                closeInvestigation()
+              ],
+            ),
           ),
-          const SizedBox(height: 10),
-          questionDetails(),
-          info(),
-          closeInvestigation()
         ],
       ),
     );
@@ -102,7 +106,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
   // region info
   Widget info() {
     return Container(
-      margin: const EdgeInsets.only(top: 20),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: AppColors.primary.withOpacity(0.1)),
       child: const Padding(
         padding: EdgeInsets.all(15),
@@ -140,43 +143,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
   // endregion
 
-  // region status
-  Widget status() {
-    return Container(
-      width: double.maxFinite,
-      decoration: BoxDecoration(color: AppColors.primary.withOpacity(0.1), borderRadius: BorderRadius.circular(10)),
-      child: Padding(
-        padding: const EdgeInsets.all(15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                statusItem(AppAssets.processing, AppStrings.processing, 0),
-                Expanded(child: Center(child: Icon(Icons.arrow_forward, color: detailsBloc.status > 0 ? AppColors.primary : Colors.black45))),
-                statusItem(AppAssets.ongoing, AppStrings.onGoing, 1),
-                Expanded(child: Center(child: Icon(Icons.arrow_forward, color: detailsBloc.status > 1 ? AppColors.primary : Colors.black45))),
-                statusItem(AppAssets.finish, AppStrings.finished, 2),
-              ],
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  // endregion
-
   // region status Item
   Widget statusItem(String image, String name, int status) {
     return Column(
       children: [
-        SvgPicture.asset(
-          image,
-          width: 30,
-          height: 30,
-          color: detailsBloc.status >= status ? AppColors.primary : Colors.black45,
-        ),
+        SvgPicture.asset(image, width: 30, height: 30, color: detailsBloc.status >= status ? AppColors.primary : Colors.black45),
         const SizedBox(height: 5),
         Text(
           name,
@@ -190,28 +161,28 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
 // region questionDetails
   Widget questionDetails() {
-    return Expanded(
-      child: ListView.builder(
-          itemBuilder: (context, index) {
-            return Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    detailsBloc.questionResponse.questions![index].question!,
-                    style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-                  ),
-                  Text(
-                    detailsBloc.questionResponse.questions![index].answer!,
-                    style: const TextStyle(fontWeight: FontWeight.w500, color: AppColors.primary, fontSize: 16),
-                  ),
-                ],
-              ),
-            );
-          },
-          itemCount: detailsBloc.questionResponse.questions!.length),
-    );
+    return ListView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          return Container(
+            margin: const EdgeInsets.only(bottom: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  detailsBloc.questionResponse.questions![index].question!,
+                  style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                ),
+                Text(
+                  detailsBloc.questionResponse.questions![index].answer!,
+                  style: const TextStyle(fontWeight: FontWeight.w500, color: AppColors.primary, fontSize: 16),
+                ),
+              ],
+            ),
+          );
+        },
+        itemCount: detailsBloc.questionResponse.questions!.length);
   }
 // endregion
 }

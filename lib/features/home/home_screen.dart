@@ -82,8 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 // region showQuestions
   Widget showQuestions() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return ListView(
       children: [
         Container(
           padding: const EdgeInsets.symmetric(vertical: 20),
@@ -135,18 +134,21 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // region prevBtn
   Widget prevBtn() {
-    return CupertinoButton(
-      padding: EdgeInsets.zero,
-      onPressed: homeBloc.currentQuestion == 0 ? null : () => homeBloc.prevQuestion(),
-      child: Container(
-        height: 45,
-        alignment: Alignment.centerLeft,
-        width: 100,
-        margin: const EdgeInsets.all(30),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50), color: homeBloc.currentQuestion == 0 ? AppColors.primary.withOpacity(0.3) : AppColors.primary),
-        child: const Center(
-          child: Icon(Icons.arrow_back, color: Colors.white),
+    return Container(
+      alignment: Alignment.centerLeft,
+      child: CupertinoButton(
+        padding: EdgeInsets.zero,
+        onPressed: homeBloc.currentQuestion == 0 ? null : () => homeBloc.prevQuestion(),
+        child: Container(
+          height: 45,
+          alignment: Alignment.centerLeft,
+          width: 100,
+          margin: const EdgeInsets.all(30),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50), color: homeBloc.currentQuestion == 0 ? AppColors.primary.withOpacity(0.3) : AppColors.primary),
+          child: const Center(
+            child: Icon(Icons.arrow_back, color: Colors.white),
+          ),
         ),
       ),
     );

@@ -35,8 +35,5 @@ class AppStrings {
   static const details = "Investigation Details";
   static const closeInvestigation = "Close Investigation";
   static const closeInvestigationMsg = "Are you sure to close investigation?";
-  static const processing = "Processing";
-  static const onGoing = "On Going";
-  static const finished = "Finished";
   static const contactMessage = "We will be in touch with you shortly regarding a private investigation.";
 }
