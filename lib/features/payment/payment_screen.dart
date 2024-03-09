@@ -160,9 +160,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
             ),
           ),
           CupertinoButton(
-            padding: EdgeInsets.zero,
+            padding: const EdgeInsets.symmetric(horizontal: 30),
             onPressed: () => CommonMethods.openUrl("${AppConstants.paymentUrl}${paymentBloc.questionResponse.phoneNo}"),
             child: const Text(AppStrings.amount,
+                textAlign: TextAlign.center,
                 style: TextStyle(decoration: TextDecoration.underline, fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.primary)),
           ),
           const SizedBox(height: 10)
