@@ -1,18 +1,8 @@
 import 'dart:async';
-
-import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:razorpay_flutter/razorpay_flutter.dart';
-import 'package:shadowhire/features/details/details_screen.dart';
 import 'package:shadowhire/features/payment/payment_screen.dart';
 import 'package:shadowhire/model/question_response.dart';
-import 'package:shadowhire/services/cache_storage/cache_storage_service.dart';
-import 'package:shadowhire/utils/app_constants.dart';
-import 'package:shadowhire/utils/app_strings.dart';
 import 'package:shadowhire/utils/common_methods.dart';
-import 'package:shadowhire/utils/common_widgets.dart';
-
-import '../../services/cache_storage/storage_keys.dart';
 
 class ContactBloc {
   // region Common Variables
