@@ -3,7 +3,6 @@ class QuestionResponse {
   String? phoneNo;
   String? emailId;
   String? name;
-  String? paymentId;
 
   QuestionResponse({this.questions, this.phoneNo, this.emailId, this.name});
 
@@ -15,7 +14,6 @@ class QuestionResponse {
       });
       phoneNo = json['phoneNo'];
       emailId = json['emailId'];
-      paymentId = json['paymentId'];
       name = json['name'];
     }
   }
@@ -28,7 +26,6 @@ class QuestionResponse {
     data['phoneNo'] = this.phoneNo;
     data['emailId'] = this.emailId;
     data['name'] = this.name;
-    data['paymentId'] = this.paymentId;
     return data;
   }
 }

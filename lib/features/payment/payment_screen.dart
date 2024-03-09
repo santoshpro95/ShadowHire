@@ -75,14 +75,21 @@ class _PaymentScreenState extends State<PaymentScreen> {
   Widget confirm() {
     return Container(
       margin: const EdgeInsets.only(top: 10),
-      child: CupertinoButton(
-        onPressed: () => paymentBloc.confirm(),
-        child: Container(
-          height: 45,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: AppColors.primary),
-          child: const Center(child: Text(AppStrings.confirm, style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500))),
-        ),
-      ),
+      child: StreamBuilder<bool>(
+          stream: paymentBloc.loadingCtrl.stream,
+          initialData: false,
+          builder: (context, snapshot) {
+            if (snapshot.data!) return const Center(child: CircularProgressIndicator(color: AppColors.primary));
+            return CupertinoButton(
+              onPressed: () => paymentBloc.sendEmail(),
+              child: Container(
+                height: 45,
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: AppColors.primary),
+                child:
+                    const Center(child: Text(AppStrings.confirm, style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500))),
+              ),
+            );
+          }),
     );
   }
 

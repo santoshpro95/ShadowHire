@@ -89,6 +89,7 @@ class HomeBloc {
   // region loadQuestions
   Future<void> loadQuestions() async {
     try {
+      currentQuestion = 0;
       var jsonFile = AppAssets.englishQuestion;
       if (languageCtrl.value == "Hindi") jsonFile = AppAssets.hindiQuestion;
       var question = await CommonMethods.getJsonFile(jsonFile);
