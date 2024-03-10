@@ -45,7 +45,7 @@ class PaymentBloc {
   // region open Payment
   void openPayment() async {
     try {
-      var url = "${AppConstants.paymentUrl}${questionResponse.phoneNo}";
+      var url = "${AppConstants.phonePePaymentUrl}${questionResponse.phoneNo}";
       await launchUrl(Uri.parse(url));
     } catch (exception) {
       if (!context.mounted) return;
