@@ -30,7 +30,7 @@ class AppStrings {
   static const confirm = "Confirm Payment";
   static const amount = "Tap here to pay on Phonepe ₹${AppConstants.amount}.00";
   static const verifyPayment = "If the payment has not been made, the investigation will not proceed further.";
-  static const noPhonePay = "You don't have phone pay in your device, please scan this QR code";
+  static const noPhonePay = "You don't have the PhonePe app installed on your device, kindly use any UPI app to scan the provided QR code.";
 
   // details
   static const details = "Investigation Details";

@@ -44,7 +44,7 @@ android {
         applicationId "com.shadow.hire"
         minSdkVersion 21
         targetSdkVersion 34
-        versionCode 2
+        versionCode 3
         versionName "1.0.1"
     }
 
