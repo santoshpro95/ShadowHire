@@ -7,7 +7,11 @@ import 'package:shadowhire/features/details/details_screen.dart';
 import 'package:shadowhire/model/question_response.dart';
 import 'package:shadowhire/services/cache_storage/cache_storage_service.dart';
 import 'package:shadowhire/services/cache_storage/storage_keys.dart';
+import 'package:shadowhire/utils/app_constants.dart';
+import 'package:shadowhire/utils/app_strings.dart';
 import 'package:shadowhire/utils/common_methods.dart';
+import 'package:shadowhire/utils/common_widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PaymentBloc {
   // region Common Variables
@@ -35,6 +39,20 @@ class PaymentBloc {
 
   // region Init
   void init() {}
+
+  // endregion
+
+  // region open Payment
+  void openPayment() async {
+    try {
+      var url = "${AppConstants.paymentUrl}${questionResponse.phoneNo}";
+      await launchUrl(Uri.parse(url));
+    } catch (exception) {
+      if (!context.mounted) return;
+      CommonWidgets.infoDialog(context, AppStrings.noPhonePay);
+      print(exception);
+    }
+  }
 
   // endregion
 

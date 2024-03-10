@@ -8,6 +8,7 @@ import 'package:shadowhire/services/cache_storage/storage_keys.dart';
 import 'package:shadowhire/utils/app_strings.dart';
 import 'package:shadowhire/utils/common_methods.dart';
 import 'package:shadowhire/utils/common_widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailsBloc {
   // region Common Variables
@@ -35,6 +36,17 @@ class DetailsBloc {
   // region Init
   void init() {
     getDetails();
+  }
+
+  // endregion
+
+  // region openUrl
+  Future<void> openUrl(String url) async {
+    try {
+      await launchUrl(Uri.parse(url));
+    } catch (exception) {
+      print(exception);
+    }
   }
 
   // endregion

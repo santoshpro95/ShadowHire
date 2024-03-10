@@ -41,9 +41,16 @@ class _DetailsScreenState extends State<DetailsScreen> {
   // region Build
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(toolbarHeight: 0, backgroundColor: Colors.white, elevation: 0),
-      body: body(),
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => detailsBloc.openUrl('mailto:santosh95.educational@gmail.com'),
+          child: const Icon(Icons.question_mark),
+        ),
+        appBar: AppBar(toolbarHeight: 0, backgroundColor: Colors.white, elevation: 0),
+        body: body(),
+      ),
     );
   }
 

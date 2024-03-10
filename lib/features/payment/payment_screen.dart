@@ -161,7 +161,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
           ),
           CupertinoButton(
             padding: const EdgeInsets.symmetric(horizontal: 30),
-            onPressed: () => CommonMethods.openUrl("${AppConstants.paymentUrl}${paymentBloc.questionResponse.phoneNo}"),
+            onPressed: () => paymentBloc.openPayment(),
             child: const Text(AppStrings.amount,
                 textAlign: TextAlign.center,
                 style: TextStyle(decoration: TextDecoration.underline, fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.primary)),

@@ -13,7 +13,6 @@ class CommonMethods {
 
 //#endregion
 
-
   // region read Json File
   static Future<Map<String, dynamic>> getJsonFile(String filePath) async {
     var jsonStr = await rootBundle.loadString(filePath);
@@ -22,14 +21,10 @@ class CommonMethods {
 
 // endregion
 
-
   // region openUrl
   static openUrl(String url) async {
-    if (!await launchUrl(Uri.parse(url))) {
-      throw 'Could not launch $url';
-    }
+
   }
 
 // endregion
-
 }

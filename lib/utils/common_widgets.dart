@@ -1,8 +1,37 @@
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
+import 'app_strings.dart';
 class CommonWidgets {
 
+
+  // region infoDialog
+  static void infoDialog(BuildContext context, String msg, {String title = "Info", okay}) {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) => AlertDialog(
+          title: Column(children: [
+            SizedBox(height: 16),
+            Text(title, style: TextStyle(fontSize: 20), textAlign: TextAlign.center),
+            SizedBox(height: 20.0),
+            Text("$msg", style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.grey), textAlign: TextAlign.center),
+            SizedBox(height: 20.0),
+            Container(
+                width: 100,
+                height: 40,
+                child: ElevatedButton(
+                    child: Text("Okay"),
+                    onPressed: () => okay != null ? okay() : Navigator.pop(context),
+                    style: ElevatedButton.styleFrom(
+                        primary: AppColors.primary,
+                        onPrimary: Colors.white,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)))))
+          ]),
+        ));
+  }
+
+// endregion
 
   // region ConfirmationBox
   static void confirmationBox(
